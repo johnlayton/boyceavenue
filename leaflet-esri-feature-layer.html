@@ -1,0 +1,31 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-ajax/core-ajax.html">
+<link rel="import" href="../leaflet-map/leaflet-import.html">
+
+<!--
+
+##### Example
+
+	<leaflet-esri-feature-layer url="http://<hostname>/arcgis/rest/services/<service>/MapServer/<id>">
+	</leaflet-esri-feature-layer>
+
+@element leaflet-esri-feature-layer
+-->
+<polymer-element name="leaflet-esri-feature-layer" attributes="url icon">
+  <template>
+    <style>
+      :host {
+        display: none;
+      }
+    </style>
+
+  </template>
+
+  <script>
+  </script>
+
+  <script src="../esri-leaflet/esri-leaflet-src.js"></script>
+
+  <script src="leaflet-esri-feature-layer.js"></script>
+
+</polymer-element>
