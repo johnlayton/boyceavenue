@@ -2,11 +2,6 @@
 
 Polymer( 'leaflet-esri-feature-layer', {
 
-  //url : 'https://emap.depi.vic.gov.au/arcgis/rest/services/weather/MapServer/16',
-  //icon : 'http://upload.wikimedia.org/wikipedia/commons/5/59/Farm-Fresh_lightning.png',
-
-  url : '', icon: '',
-
   created : function () {
   },
 
@@ -17,10 +12,6 @@ Polymer( 'leaflet-esri-feature-layer', {
     if ( this.container ) {
       var icon = this.icon;
       var url = this.url;
-
-      console.log( url );
-      console.log( icon );
-
       this.layer = L.esri.featureLayer( url, {
         pointToLayer: function (geojson, latlng) {
           function trim( text ) {
@@ -35,7 +26,6 @@ Polymer( 'leaflet-esri-feature-layer', {
               }
             }
           }
-
           return L.marker(latlng, {
             icon: L.icon({
                            iconUrl: icon,
@@ -53,7 +43,7 @@ Polymer( 'leaflet-esri-feature-layer', {
 
   detached : function () {
     if ( this.container && this.layer ) {
-      this.container.removeControl( this.layer );
+      this.container.removeLayer( this.layer );
     }
   }
 } );
