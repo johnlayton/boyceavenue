@@ -22,7 +22,8 @@ Polymer( 'leaflet-esri-feature-layer', {
             if ( geojson.properties.hasOwnProperty( prop ) ) {
               var text = trim( geojson.properties[prop] );
               if ( text && text.length > 0 ) {
-                details.push( text );
+                //details.push( { dt: prop, dd: text } );
+                details.push( prop + "</dt><dd>" + text );
               }
             }
           }
@@ -34,7 +35,7 @@ Polymer( 'leaflet-esri-feature-layer', {
                            iconAnchor: [0, 0],
                            popupAnchor: [0, 0]
                          })
-          }).bindPopup( "<div><ul><li>" + details.join("</li><li>") +"</li></ul><div>" );
+          }).bindPopup( "<div><dl class='multiple-table'><dt>" + details.join("</dd><dt>") +"</dd></dl><div>" );
         }
       });
       this.container.addLayer( this.layer );
