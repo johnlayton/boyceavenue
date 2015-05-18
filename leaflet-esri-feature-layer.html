@@ -2,11 +2,15 @@
 <link rel="import" href="../core-ajax/core-ajax.html">
 <link rel="import" href="../leaflet-map/leaflet-import.html">
 
+
+<link rel="import" href="../leighcourt/web-storage.html">
+
 <!--
 
 ##### Example
 
-	<leaflet-esri-feature-layer url="http://<hostname>/arcgis/rest/services/<service>/MapServer/<id>">
+	<leaflet-esri-feature-layer name="My Layer"
+	    url="http://<hostname>/arcgis/rest/services/<service>/MapServer/<id>">
 	</leaflet-esri-feature-layer>
 
 @element leaflet-esri-feature-layer
@@ -19,13 +23,14 @@
       }
     </style>
 
+    <web-storage storage="{{storage}}" group="EsriFeatures" resource="{{name}}"></web-storage>
+
   </template>
 
   <script>
   </script>
 
   <script src="../esri-leaflet/dist/esri-leaflet-src.js"></script>
-
   <script src="leaflet-esri-feature-layer.js"></script>
 
 </polymer-element>
