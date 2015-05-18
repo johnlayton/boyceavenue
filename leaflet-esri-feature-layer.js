@@ -2,6 +2,8 @@
 
 Polymer( 'leaflet-esri-feature-layer', {
 
+  size : [ 32, 32 ],
+
   observe: {
     'container storage': 'containerChanged'
   },
@@ -53,6 +55,7 @@ Polymer( 'leaflet-esri-feature-layer', {
 
     if ( this.container && this.storage ) {
       var icon = this.icon;
+      var size = this.size;
       var url = this.url;
 
       this.layer = L.esri.featureLayer( url, {
@@ -74,7 +77,7 @@ Polymer( 'leaflet-esri-feature-layer', {
             icon: L.icon({
                            iconUrl: icon,
                            iconRetinaUrl: icon,
-                           iconSize: [32, 32],
+                           iconSize: size,
                            iconAnchor: [0, 0],
                            popupAnchor: [0, 0]
                          })
