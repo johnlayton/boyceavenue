@@ -2,6 +2,7 @@
 
 Polymer( 'leaflet-esri-feature-layer', {
 
+  cache : false,
   size : [ 32, 32 ],
 
   observe: {
@@ -53,7 +54,7 @@ Polymer( 'leaflet-esri-feature-layer', {
 
   containerChanged : function () {
 
-    if ( this.container && this.storage ) {
+    if ( this.container ) {
       var icon = this.icon;
       var size = this.size;
       var url = this.url;
@@ -84,7 +85,9 @@ Polymer( 'leaflet-esri-feature-layer', {
           }).bindPopup( "<div><dl class='multiple-table'><dt>" + details.join("</dd><dt>") +"</dd></dl><div>" );
         }
       });
-      this.layer._requestFeatures = this.requestFeatures( this.layer );
+      if ( this.storage && this.cache ) {
+        this.layer._requestFeatures = this.requestFeatures( this.layer );
+      }
       this.container.addLayer( this.layer );
     }
   },
